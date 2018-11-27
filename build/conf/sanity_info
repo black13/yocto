@@ -1,0 +1,4 @@
+SANITY_VERSION 1
+TMPDIR /data_container/poky-rocko-18.0.0/build/tmp
+SSTATE_DIR /data_container/poky-rocko-18.0.0/build/sstate-cache
+NATIVELSBSTRING opensuseleap-15.0
