@@ -14,6 +14,8 @@ MACHINE ?= "beaglebone"
 
 Cela permet du coup de choisir la machine cible de notre distribution.
 
+---
+
 Afin d'activer un layer, dans le fichier `bblayers.conf`, ajouter :
 
 ```
@@ -56,8 +58,9 @@ do_compile() {
     ${CC} ${LD_FLAGS} helloworld.c -o helloworld
 }
 ```
+---
 
-Modifier `recipes-kernel/linx/linux-yocto_4.9.bbappend` :
+Modifier `recipes-kernel/linux/linux-yocto_4.9.bbappend` afin de patcher un noyau linux :
 
 ```
 COMPATIBLE_MACHINE = "beaglebone"
