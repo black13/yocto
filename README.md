@@ -52,3 +52,21 @@ do_compile() {
     ${CC} ${LD_FLAGS} helloworld.c -o helloworld
 }
 ```
+
+Modifier `recipes-kernel/linx/linux-yocto_4.9.bbappend` :
+
+```
+COMPATIBLE_MACHINE = "beaglebone"
+RDEPENDS_kernel-base += "kernel-devicetree"
+DEPENDS += "xz-native bc-native"
+KERNEL_DEVICETREE_beaglebone += " \
+    bbb-4dcape431.dtb \
+"
+
+FILESEXTRAPATH_prepend := "${THISDIR}/linux-yocto_${LINUX_VERSION}:"
+
+PV = "4.9.49"
+
+SRC_URI += " \
+
+```
