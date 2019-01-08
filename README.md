@@ -45,4 +45,10 @@ SRC_URI =  " ... \
 
 ```
 
-Pour compiler une recette, il faut remplir la fonction `do_compile()`
+Pour compiler une recette, il faut remplir la fonction `do_compile()`, ici :
+
+```
+do_compile() {
+    ${CC} ${LD_FLAGS} helloworld.c -o helloworld
+}
+```
