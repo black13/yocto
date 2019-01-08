@@ -13,23 +13,27 @@ MACHINE ?= "beaglebone"
 ```
 
 Cela permet du coup de choisir la machine cible de notre distribution.
-Puis tout en bas de `local.conf` modifier aussi :
 
-```
-IMAGE_INSTALL_append += "example sl"
-```
-
-Cela permet de dire qu'au moment de la compilation de la distribution ces paquets seront disponible dans la distribution, cela active les packages des layers, ici : `example` et `sl`.
-
-Ensuite, dans le fichier `bblayers.conf`, ajouter :
+Afin d'activer un layer, dans le fichier `bblayers.conf`, ajouter :
 
 ```
 ... \
 
 /data_container/poky-rocko-18.0.0/meta-hello \
 ```
+---
 
-Cela active les layers.
+Afin d'ajouter certaines recettes de ces layers modifier `local.conf` :
+
+```
+IMAGE_INSTALL += " example sl"
+```
+
+Cela permet de dire qu'au moment de la compilation de la distribution ces paquets seront disponible dans la distribution, cela active les packages des layers, ici : `example` et `sl`.
+
+On peut aussi paramétrer certaines recettes (paquets) pour qu'elles s'ajoutent par défaut dès lors que le layer dans lequel elles appartient à été ajouté. Cela se fait avec la même ligne de code, mais dans le fichier `local.conf`qui se situe dans le dossier du layer, c'est à dire `LAYERNAME/conf/local.conf`
+
+---
 
 Pour activer un patch, il faut modifier le `NOMRECETTE_VERSION.bb` qui se trouve dans le dossier de la recette :
 
