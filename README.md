@@ -2,7 +2,7 @@
 
 ### Written by the master of markdown also known as David Guerin
 
-![yocto.png](./yocto.png)
+![yocto.png](https://pbs.twimg.com/profile_images/1158899683/yocto-project-whitebg_400x400.png)
 
 #### Introduction 🎁
 
