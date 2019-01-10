@@ -77,3 +77,35 @@ PV = "4.9.49"
 SRC_URI += " \
 
 ```
+
+
+Yocto :
+chemin de travail:  /data_container/poky-rocko-18.0.0/
+source variables d'environnement : . oe-init-build-env
+
+commande pour lister les layers de l'image
+bitbake-layers show-layers
+
+Pour avoir une image beaglebone:
+editer conf/local.conf pour décommenter beaglebone
+bitbake cire-image-minimal pour construire l'image
+
+ajouter un layer
+modifier build/conf/bblayers.conf
+ajouter le chemin du layer dans "BBLAYERS=?"
+
+ajouter une recette
+dans build/conf/local.conf
+ajouter cette ligne :
+IMAGE_INSTALL_append = "nom de la recette dans un layer"
+
+en gros, un layer = un ensemble de recettes pour construire des programmes
+
+se connecter au port série du beaglebone
+picocom -b 115200 /dev/ttyUSB0
+
+emplacement des images :
+build/tmp/deploy/images/
+
+dumper l'image core
+dd if=core-image-minimal-beaglebone.wic of=/dev/sdc status=progress
